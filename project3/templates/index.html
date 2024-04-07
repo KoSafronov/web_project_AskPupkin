@@ -1,56 +1,58 @@
 {%extends "layouts/base.html"%}
 {% load static%}
 
+{% block content %}
 
-{%block content%}
-<div class="d-flex gap-3 align-items-center" style="margin-bottom: 10px;">
-    <h2>New Questions</h2>
-    <a href="/hot.html">Hot Questions</a>
-</div>
-<div class="col-md-8">
-    {% for question in questions%}
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="{% static 'img/avatar.png' %}" class="img-fluid rounded-start m-2 "
-                     style="width: 100px; height: 100px"
-                     alt="...">
 
-                <div class="form-outline m-2" style="width: 100px;">
-                    <input value="5" min="0" max="200" type="number" id="typeNumber" class="form-control"/>
-                    <label class="form-label" for="typeNumber"></label>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="question.html">{{ question.title}}</a></h5>
-                    <p class="card-text">{{question.text}}</p>
-                    <a href="answers.html">answers(3)</a>
-                    <span>Tags: </span>
-                    <a href="tag.html">black-jack</a>
-                    <a href="tag.html">bender</a>
 
-                </div>
-            </div>
-
-        </div>
+    <div class="col-md-8">
+            <div class="d-flex gap-3 align-items-center" style="margin-bottom: 10px; max-width: 540px;">
+        <h2>New Questions</h2>
+        <a href="/hot.html">Hot Questions</a>
     </div>
-    {% endfor %}
+        {% for question in questions%}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{% static 'img/avatar.png' %}" class="img-fluid rounded-start m-2 "
+                         style="width: 100px; height: 100px"
+                         alt="...">
 
-</div>
-    <nav aria-label="Page navigation example" style="margin-bottom: 50px;">
-        <ul class="pagination justify-content-left text-body">
-            <li class="page-item disabled ">
+                    <div class="form-outline m-2" style="width: 100px;">
+                        <input value="5" min="0" max="200" type="number" id="typeNumber" class="form-control"/>
+                        <label class="form-label" for="typeNumber"></label>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="question.html">{{ question.title}}</a></h5>
+                        <p class="card-text">{{question.text}}</p>
+                        <a href="answers.html">answers(3)</a>
+                        <span>Tags: </span>
+                        <a href="tag.html">black-jack</a>
+                        <a href="tag.html">bender</a>
 
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">...</a></li>
-            <li class="page-item"><a class="page-link" href="#">53</a></li>
-            <li class="page-item">
+                    </div>
+                </div>
 
-            </li>
-        </ul>
-    </nav>
-<% endblock %>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+        <nav aria-label="Page navigation example" style="margin-bottom: 50px; max-width: 540px;">
+            <ul class="pagination justify-content-left text-body">
+                <li class="page-item disabled ">
+
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                <li class="page-item"><a class="page-link" href="#">53</a></li>
+                <li class="page-item">
+
+                </li>
+            </ul>
+        </nav>
+{% endblock %}

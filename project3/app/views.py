@@ -11,10 +11,8 @@ QUESTIONS = [
 ]
 
 def index(request):
-    
     return render(request, "index.html", {"questions": QUESTIONS})
 
 
 def hot(request):
-    
-    return render(request, "index.html", {"questions": QUESTIONS})
+    return render(request, "hot.html", {"questions": QUESTIONS})

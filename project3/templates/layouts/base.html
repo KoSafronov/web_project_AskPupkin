@@ -51,21 +51,13 @@
 
 
 <main class="container-sm-fluid container-lg mt-3">
-    <div class="d-flex gap-3 align-items-center" style="margin-bottom: 10px;">
-        <h2>New Questions</h2>
-        <a href="/hot.html">Hot Questions</a>
-    </div>
-
-
     <div class="row">
-        <div class="d-flex gap-3 align-items-center" style="margin-bottom: 10px;">
-            <h2>New Questions</h2>
-            <a href="/hot.html">Hot Questions</a>
-        </div>
+<div class="col-md-8">
+        {% block content %}
 
-        {%block content%}
-        {%endblock%}
-        <div class="col-md-4">
+        {% endblock %}
+</div>
+        <div class="col-md-4" style="margin-top: 50px;">
             <h2>Popular Tags</h2>
             <a href="perl.html"><span class="badge text-body fs-6">perl</span></a>
             <a href="perl.html"><span class="badge text-danger fs-6">python</span></a>
@@ -88,21 +80,7 @@
         </div>
     </div>
 
-    <nav aria-label="Page navigation example" style="margin-bottom: 50px;">
-        <ul class="pagination justify-content-left text-body">
-            <li class="page-item disabled ">
 
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">...</a></li>
-            <li class="page-item"><a class="page-link" href="#">53</a></li>
-            <li class="page-item">
-
-            </li>
-        </ul>
-    </nav>
 </main>
 
 <div class="bg-dark sticky-xl-bottom fixed-bottom height-50px">
