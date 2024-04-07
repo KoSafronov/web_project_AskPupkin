@@ -15,4 +15,5 @@ def index(request):
 
 
 def hot(request):
-    return render(request, "hot.html", {"questions": QUESTIONS})
+    questions = QUESTIONS[5:]
+    return render(request, "hot.html", {"questions": questions})

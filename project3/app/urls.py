@@ -4,6 +4,8 @@ from app import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('hot/', views.hot, name='index')
+    path('hot/', views.hot, name='hot'),
+
+
 
 ]
