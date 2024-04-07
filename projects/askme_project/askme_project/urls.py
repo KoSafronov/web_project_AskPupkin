@@ -19,10 +19,10 @@ from django.urls import path
 
 from app import views
 
-import include
 
 
 urlpatterns = [
-    path('', include('app.urls'), name='index'),
+    
+    path('', views.index, name='index'),
     path('admin/', admin.site.urls),
 ]
