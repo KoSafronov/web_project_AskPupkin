@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,9 @@
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar bg-body-tertiary ">
+<nav class="navbar bg-body-tertiary border-bottom">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><h1 class="text-body">AskPupkin</h1></a>
+        <a class="navbar-brand" style="margin-left: 10px;" href="index.html"><h1 class="text-body">AskPupkin</h1></a>
         <form class="d-flex" role="search">
             <div>
                 <!--
@@ -28,13 +29,13 @@
             </div>
 
 
-            <button class="btn btn-success" type="submit">ASK!</button>
+            <button class="btn btn-success" style="margin-left: 10px;" type="submit">ASK!</button>
         </form>
 
 
-        <div class="d-flex justify-content-between gap-1">
-            <div class="account__image">
-                <img src="avatar.png" width="50px" class="d-flex flex-column justify-content-between">
+        <div class="d-flex justify-content-between gap-1" style="margin-right: 10px;">
+            <div class="account__image" style="margin-right: 5px;">
+                <img src="{% static 'img/avatar.png' %}" width="50px" class="d-flex flex-column justify-content-between">
             </div>
             <div class="d-flex flex-column justify-content-between">
                 <div>Dr.Peper</div>
@@ -46,106 +47,58 @@
         </div>
     </div>
 </nav>
-<hr>
+
 
 
 <main class="container-sm-fluid container-lg mt-3">
-    <div class="d-flex gap-3 align-items-center">
+    <div class="d-flex gap-3 align-items-center" style="margin-bottom: 10px;">
         <h2>New Questions</h2>
-        <a href="/hot.html">Hot Question</a>
+        <a href="/hot.html">Hot Questions</a>
     </div>
+
+        
 
     <div class="row">
         <div class="col-md-8">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="avatar.png" class="img-fluid rounded-start m-2 " style="width: 100px; height: 100px"
-                             alt="...">
+            {% for question in questions%}
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{% static 'img/avatar.png' %}" class="img-fluid rounded-start m-2 " style="width: 100px; height: 100px"
+                                alt="...">
 
-                        <div class="form-outline m-2" style="width: 100px;">
-                            <input value="5" min="0" max="200" type="number" id="typeNumber"  class="form-control"/>
-                            <label class="form-label" for="typeNumber"></label>
+                            <div class="form-outline m-2" style="width: 100px;">
+                                <input value="5" min="0" max="200" type="number" id="typeNumber"  class="form-control"/>
+                                <label class="form-label" for="typeNumber"></label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="question.html">How to build a moon park?</a></h5>
-                            <p class="card-text">Guys, i have trouble with a moon park.<br>
-                                Can't find in black-jack...</p>
-                            <a href="answers.html">answers(3)</a>
-                            <span>Tags: </span>
-                            <a href="tag.html">black-jack</a>
-                            <a href="tag.html">bender</a>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="question.html">{{ question.title}}</a></h5>
+                                <p class="card-text">{{question.text}}</p>
+                                <a href="answers.html">answers(3)</a>
+                                <span>Tags: </span>
+                                <a href="tag.html">black-jack</a>
+                                <a href="tag.html">bender</a>
 
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="avatar.png" class="img-fluid rounded-start m-2 " style="width: 100px; height: 100px"
-                             alt="...">
+            {% endfor %}
 
-                        <div class="form-outline m-2" style="width: 100px;">
-                            <input value="5" min="0" max="200" type="number" id="typeNumber" class="form-control"/>
-                            <label class="form-label" for="typeNumber"></label>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="question.html">How to build a moon park?</a></h5>
-                            <p class="card-text">Guys, i have trouble with a moon park.<br>
-                                Can't find in black-jack...</p>
-                            <a href="answers.html">answers(3)</a>
-                            <span>Tags: </span>
-                            <a href="tag.html">black-jack</a>
-                            <a href="tag.html">bender</a>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="avatar.png" class="img-fluid rounded-start m-2 " style="width: 100px; height: 100px"
-                             alt="...">
-
-                        <div class="form-outline m-2" style="width: 100px;">
-                            <input value="5" min="0" max="200" type="number" id="typeNumber" class="form-control"/>
-                            <label class="form-label" for="typeNumber"></label>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="question.html">How to build a moon park?</a></h5>
-                            <p class="card-text">Guys, i have trouble with a moon park.<br>
-                                Can't find in black-jack...</p>
-                            <a href="answers.html">answers(3)</a>
-                            <span>Tags: </span>
-                            <a href="tag.html">black-jack</a>
-                            <a href="tag.html">bender</a>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
         </div>
         <div class="col-md-4">
             <h2>Popular Tags</h2>
-            <span class="badge text-body">perl</span>
-            <span class="badge text-danger">python</span>
-            <span class="badge text-body">TechnoPark</span><br>
-            <span class="badge text-danger"><h5>MySQL</h5></span>
-            <span class="badge text-success">django</span><br>
-            <span class="badge text-body">Mail.Ru</span>
-            <span class="badge text-body">Voloshin</span>
-            <span class="badge text-warning">Firefox</span>
+            <a href="perl.html"><span class="badge text-body fs-6">perl</span></a>
+            <a href="perl.html"><span class="badge text-danger fs-6">python</span></a>
+            <a href="perl.html"><span class="badge text-body fs-6">TechnoPark</span><br></a>
+            <a href="perl.html"><span class="badge text-danger fs-5">MySQL</span></a>
+            <a href="perl.html"><span class="badge text-success fs-6">django</span><br></a>
+            <a href="perl.html"><span class="badge text-body fs-6">Mail.Ru</span></a>
+            <a href="perl.html"><span class="badge text-body fs-6">Voloshin</span></a>
+            <a href="perl.html"><span class="badge text-warning fs-6">Firefox</span></a>
 
             <div class="mt-5"></div>
             <div><h3>Best Members</h3></div>
@@ -159,7 +112,7 @@
         </div>
     </div>
 
-    <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation example" style="margin-bottom: 50px;">
         <ul class="pagination justify-content-left text-body">
             <li class="page-item disabled ">
 
