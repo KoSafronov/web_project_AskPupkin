@@ -6,7 +6,7 @@ from django.shortcuts import render
 QUESTIONS = [
     {
         "title": f"Question {i}",
-        "text": F"This is question number{i}"
+        "text": F"This is question number {i}"
     } for i in range(10)
 ]
 
@@ -16,5 +16,5 @@ def index(request):
 
 
 def hot(request):
-    questions = QUESTIONS.reverse()
-    return render(request, "index.html", {"questions": questions})
+    
+    return render(request, "index.html", {"questions": QUESTIONS})
