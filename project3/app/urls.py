@@ -10,6 +10,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.logout, name='logout'),
 
-    path('questions/<int:question_id>', views.question, name='question')
+    path('questions/<int:question_id>', views.question, name='question'),
+    path('tags/<tag_name>', views.tag, name='tag'),
 
 ]

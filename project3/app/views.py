@@ -12,6 +12,18 @@ QUESTIONS = [
 ]
 
 
+
+'''
+TAGS = [
+    {
+        tag_list := ['perl', 'python', 'TechnoPark', 'MySql', 'django', 'Mail.Ru', 'Voloshin', 'Firefox'],
+        "id": j,
+        "title": f"Tag {j}",
+        "text": F"This is all about {j}"
+    } for j in tag_list
+]
+'''
+
 def index(request):
     page_num = request.GET.get('page', 1)
     paginator = Paginator(QUESTIONS, 5)
@@ -51,3 +63,7 @@ def logout(request):
 def question(request, question_id):
     item = QUESTIONS[question_id]
     return render(request, "question_detail.html", {"question": item})
+
+def tag(request, tag_name):
+    name = TAGS[tag_name]
+    return render(request, "tag_page.html", {"tag": tag_name})
