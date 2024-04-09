@@ -11,32 +11,7 @@
         <a href="/hot/">Hot Questions</a>
     </div>
         {% for question in questions%}
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{% static 'img/avatar.png' %}" class="img-fluid rounded-start m-2 "
-                         style="width: 100px; height: 100px"
-                         alt="...">
-
-                    <div class="form-outline m-2" style="width: 100px;">
-                        <input value="5" min="0" max="200" type="number" id="typeNumber" class="form-control"/>
-                        <label class="form-label" for="typeNumber"></label>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="question.html">{{ question.title}}</a></h5>
-                        <p class="card-text">{{question.text}}</p>
-                        <a href="answers.html">answers(3)</a>
-                        <span>Tags: </span>
-                        <a href="tag.html">black-jack</a>
-                        <a href="tag.html">bender</a>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
+            {%include "layouts/question.html"%}
         {% endfor %}
 
     </div>

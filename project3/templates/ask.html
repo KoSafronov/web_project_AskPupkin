@@ -1,0 +1,75 @@
+{%extends "layouts/base2.html"%}
+{% load static%}
+
+
+{% block content%}
+<div class="col-md-8 ">
+    <div class="d-flex gap-3 align-items-center">
+        <h2>New Question</h2>
+    </div>
+    <div class="container text-center">
+        <br>
+        <div class="row">
+            <div class="col-md-2">
+                Title
+            </div>
+            <div class="col-md-10">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="formGroupExampleInput"
+                               placeholder="How to build a moon park?">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-2">
+                Text
+            </div>
+            <div class="col-md-10">
+                <form>
+                    <div class="form-group">
+                                <textarea placeholder="Really, how? I have no idea about it" rows="10"
+                                          id="formGroupExampleInput"
+                        <input type="text" class="form-control"
+                               placeholder="Really, how? I have no idea about it"
+                        >
+                        </textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-2">
+                Tags
+            </div>
+            <div class="col-md-10">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="formGroupExampleInput"
+                               placeholder="moon, park, puzzle">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10 ml-auto d-flex align-self-start">
+                <button type="button" class="btn btn-outline-dark ">ASK!</button>
+
+            </div>
+        </div>
+        <br>
+    </div>
+
+</div>
+
+
+{% endblock %}>
+
+
