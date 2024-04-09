@@ -31,8 +31,8 @@
             <div class="d-flex flex-column justify-content-between">
                 <div>Dr.Peper</div>
                 <div>
-                    <a href="/settings/">Settings</a>
-                    <a href="/login/">Log out</a>
+                    <a href="{% url "settings" %}">Settings</a>
+                    <a href="{% url "logout" %}">Log out</a>
                 </div>
             </div>
         </div>
@@ -49,23 +49,14 @@
 </div>
         <div class="col-md-4" style="margin-top: 50px;">
             <h2>Popular Tags</h2>
-            <a href="perl.html"><span class="badge text-body fs-6">perl</span></a>
-            <a href="python.html"><span class="badge text-danger fs-6">python</span></a>
-            <a href="technopark.html"><span class="badge text-body fs-6">TechnoPark</span><br></a>
-            <a href="mysql.html"><span class="badge text-danger fs-5">MySQL</span></a>
-            <a href="django.html"><span class="badge text-success fs-6">django</span><br></a>
-            <a href="mailru.html"><span class="badge text-body fs-6">Mail.Ru</span></a>
-            <a href="voloshin.html"><span class="badge text-body fs-6">Voloshin</span></a>
-            <a href="firefox.html"><span class="badge text-warning fs-6">Firefox</span></a>
+            {%include "layouts/tags.html"%}
+
 
             <div class="mt-5"></div>
             <div><h3>Best Members</h3></div>
             <div>
-                <p><a href="mrfreeman.html">Mr. Freeman</a></p>
-                <p><a href="drhouse.html">Dr. House</a></p>
-                <p><a href="bender.html">Bender</a></p>
-                <p><a href="qweenvictoria.html">Queen Victoria</a></p>
-                <p><a href="vpupkin.html">V. Pupkin</a></p>
+                {%include "layouts/best_members.html"%}
+
             </div>
         </div>
     </div>

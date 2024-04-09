@@ -15,19 +15,5 @@
         {% endfor %}
 
     </div>
-        <nav aria-label="Page navigation example" style="margin-bottom: 50px; max-width: 540px;">
-            <ul class="pagination justify-content-left text-body">
-                <li class="page-item disabled ">
-
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                <li class="page-item"><a class="page-link" href="#">53</a></li>
-                <li class="page-item">
-
-                </li>
-            </ul>
-        </nav>
+        {%include "layouts/pagination.html" with page_obj=questions%}
 {% endblock %}
