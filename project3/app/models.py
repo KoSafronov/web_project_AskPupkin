@@ -11,9 +11,12 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     pass
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
+    avatar = models.ImageField(null=True, blank=True)
 
 class Question(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(Profile, on_delete=models.CASCADE)
     text_space = models.TextField()
     likes_sum = models.Sum()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -40,7 +43,7 @@ class Tag(models.Model):
     pass
 
 class Like(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(Profile, on_delete=models.CASCADE)
     question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     pass
@@ -83,6 +86,4 @@ class link_tag(models.Model):
 
 '''
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.PROTECT)
-    avatar = models.ImageField(null=True, blank=True)
+
