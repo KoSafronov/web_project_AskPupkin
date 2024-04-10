@@ -12,5 +12,6 @@ urlpatterns = [
 
     path('questions/<int:question_id>', views.question, name='question'),
     path('tags/<tag_name>', views.tag, name='tag'),
+    path('404/', views.oops_404, name='oops'),
 
 ]

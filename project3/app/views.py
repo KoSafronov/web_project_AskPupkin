@@ -67,3 +67,7 @@ def question(request, question_id):
 def tag(request, tag_name):
     name = TAGS[tag_name]
     return render(request, "tag_page.html", {"tag": tag_name})
+
+
+def oops_404(request):
+    return render(request, "layouts/404_oops.html")
