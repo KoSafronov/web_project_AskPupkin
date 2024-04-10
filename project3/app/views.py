@@ -24,9 +24,14 @@ TAGS = [
 ]
 '''
 
+def PageNotFound(request, exception):
+    return render(request, template_name='oops', status=404)
+def handler500(request, exception):
+    return render(request, template_name='oops', status=500)
+
 def index(request):
     page_num = request.GET.get('page', 1)
-    paginator = Paginator(QUESTIONS, 5)
+    paginator = Paginator(QUESTIONS, 5, allow_empty_first_page=False)
     page_obj = paginator.page(page_num)
     return render(request, "index.html", {"questions": page_obj})
 
@@ -34,7 +39,7 @@ def index(request):
 def hot(request):
     questions = QUESTIONS[::-1]
     page_num = request.GET.get('page', 1)
-    paginator = Paginator(questions, 5)
+    paginator = Paginator(questions, 5, allow_empty_first_page=False)
     page_obj = paginator.page(page_num)
     return render(request, "hot.html", {"questions": page_obj})
 
