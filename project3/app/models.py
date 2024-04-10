@@ -5,84 +5,53 @@ from django.db import models
 class User(models.Model):
     username = models.CharField(max_length=14)
     password = models.CharField(max_length=20)
-    avatar = models.CharField
-    created_at = models.CharField
-
+    avatar = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     pass
 
-'''
-Table users {
-  id int [pk, increment]
-  username varchar [pk]
-  password varchar
-  avatar varchar
-  created_at datetime
-  updated_at datetime
-
-}
-'''
 
 class Question(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.SET_NULL)
+    text_space = models.TextField()
+    likes_sum = models.Sum()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     pass
-'''
-Table questions {
-  id int [pk, increment]
-  author_id int
-  tag varchar
-  likes_num int 
-  created_at datetime
-
-}
-'''
 
 class Answer(models.Model):
+    STATUS_CHOICES = [("cr", "Correct"), ("noinf", "NoInformation")]
+    question_id = models.ForeignKey(Question, on_delete=models.SET_NULL)
+    user_id = models.ForeignKey(User, on_delete=models.SET_NULL)
+    text_space = models.TextField()
+    correction = models.CharField(choices=STATUS_CHOICES, max_length=15)
+    likes_sum = models.Sum()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     pass
-'''
-Table answers {
-  id int [pk, increment]
-  question_id varchar
-  author_id int
-  tag varchar
-  correction bool 
-  created_at datetime
-}
-'''
 
 
 class Tag(models.Model):
+    name = models.CharField(max_length=10)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     pass
-'''
-Table tags {
-  tag_name varchar [pk]
-}
-'''
+
+class link_tag(models.Model):
+    OBJ_CHOICES = ["Question", "Answer"]
+    obj_id = models.ForeignKey(choices=OBJ_CHOICES, on_delete=models.CASCADE)
+    tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    type = models.CharField(max_length=10)
+    pass
 
 class Like(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.SET_NULL)
+    question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
     pass
-'''
-Table likes {
-  id int [pk, increment]
-  user_id int
-  created_at datetime
-  updated_at datetime
-}
-'''
 
-
-'''
-
-Ref: "likes"."user_id" < "users"."id"
-
-Ref: "questions"."likes_num" < "likes"."id"
-
-Ref: "questions"."tag" < "tags"."tag_name"
-
-Ref: "answers"."tag" < "tags"."tag_name"
-
-Ref: "answers"."id" < "questions"."id"
-
-Ref: "questions"."author_id" < "users"."id"
-
-Ref: "answers"."author_id" < "users"."id"
-
-'''
+class link_like(models.Model):
+    obj_id = models.ForeignKey((Question, Answer), on_delete=models.SET_NULL)
+    like_id = models.ForeignKey(Like, on_delete=models.CASCADE())
+    type = models.CharField(max_length=10)
+    pass
